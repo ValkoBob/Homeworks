@@ -47,7 +47,7 @@ body {
     font-family: GotFont, serif;
 }
 
-.form-part p {
+.form-part__greeting {
     border-left: 3px solid #d3bb89;
     font-family: 'Open Sans', sans-serif;
     color: #fef8eb;
@@ -64,14 +64,14 @@ body {
 .form-part__label {
     color: #d3bb89;
     font-family: 'EB Garamond', serif;
-    font-size: 1.3rem;
-    margin-top: 7%;
+    font-size: 1.4rem;
+    margin-top: 10%;
 }
 
 .form-part__username {
     color: #fef8eb;
     font-family: 'Open Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
@@ -98,7 +98,7 @@ option {
 
 .form-part__textArea {
     padding: 3% 0;
-    min-height: 18%;
+    min-height: 20%;
     background: none;
     border: none;
     border-bottom: 3px solid #d3bb89;
@@ -118,11 +118,11 @@ option {
     border: none;
 }
 
-.form-part__checkbox{
+.form-part__checkbox {
     margin-top: 5%;
 }
 
-.form-part__checkbox input{
+.form-part__checkbox input {
     display: none;
     position: absolute;
 }
@@ -146,8 +146,8 @@ input[type="checkbox"]:not(:checked) + label:before {
     top: 0;
     width: 15%;
     height: 95%;
-    border: 1px solid  #d3bb89;
-    background-color:  #d3bb89;
+    border: 1px solid #d3bb89;
+    background-color: #d3bb89;
     border-radius: 2px;
 }
 

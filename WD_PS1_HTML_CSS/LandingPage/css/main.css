@@ -162,17 +162,17 @@ h1 {
     height: 100px;
 }
 
-.contact_item button{
+.contact_item button {
     margin: 10px auto;
 }
 
-.sign_in input{
+.sign_in input {
     height: 40px;
     width: 240px;
     margin: 10px auto;
 }
 
-.registration input{
+.registration input {
     height: 40px;
     width: 250px;
     margin: 10px auto;
