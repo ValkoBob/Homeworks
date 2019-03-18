@@ -81,7 +81,7 @@ body {
 }
 
 .info-text-block p {
-  font-size: 11px;
+  font-size: 12px;
   color: white;
 }
 
@@ -99,19 +99,18 @@ button {
 }
 
 .services {
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 50px 50px 100px;
   justify-content: center;
-}
-
-.services div {
-  width: 320px;
+  flex-wrap: wrap;
+  margin: 50px auto;
 }
 
 .services_item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  color: #454545;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -126,73 +125,110 @@ button {
   padding: 10px;
 }
 
-.services_icon-color {
-  color: #1abc9c;
-}
-
 .services_icon {
-  margin-top: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  align-self: center;
+  background-color: #1abc9c;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
   font-size: 30px;
 }
 
-h2 {
-  font-size: 25px;
-  color: white;
-  text-align: center;
-  margin-top: 50px;
-  padding-bottom: 20px;
-}
-
-.contacts {
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
 .contact_item {
-  width: 400px;
+  width: 600px;
 }
 
-.contact_item:nth-child(2) {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+textarea:focus, input:focus{
+  outline: none;
+  border: transparent;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
 }
 
 .contact_item h2 {
   text-align: center;
+  color: white;
+  margin: 35px;
 }
 
-.contact_item h2 {
-  margin-top: 60px;
-  margin-bottom: 10px;
+.contact_item textarea {
+  height: 100px;
+  resize: none;
+  margin: 5px;
+  padding-left: 5px;
 }
 
-.forms__block-row {
-  padding: 5px;
+.contact_item__button_state {
   display: flex;
-  justify-content: flex-end;
+}
+
+input[type=submit], [type=reset] {
+  font-size: 22px;
+  border-radius: 3px;
+  border: 2px solid white;
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin: 40px;
+  background-color: #1abc9c;
 }
 
 input[type=text], [type=tel], [type=email], [type=password], [type=date], [type=url],
 [type=datetime-local], [type=time], [type=number], [type=month], [type=file] {
-  height: 33px;
-  flex: 2;
-  max-width: 280px;
+  margin: 5px;
+  height: 35px;
+  padding-left: 5px;
+}
+
+.forms__block-row {
+  display: flex;
+  color: white;
+}
+
+.forms__block-row label {
+  flex-basis: 30%;
+  padding: 10px;
 }
 
 .forms__block-row input {
+  flex-basis: 70%;
+}
+
+.forms__block_row__gender {
+  display: flex;
+  flex-direction: row;
+}
+
+.forms__block_row__gender p {
+  flex-basis: 50%;
   margin-left: 10px;
 }
 
-.forms__block-row textarea {
-  padding: 0;
-  flex: 1;
-  height: 100px;
-  resize: none;
+.forms__block_row__gender label {
+  padding: 30px;
+  flex-basis: 20%;
 }
 
-[for=male], [for=female], [for=other] {
-  padding-left: 10px;
+.forms__block_row__gender input {
+  flex-basis: 5%;
+  margin-top: 30px;
 }
+
+input[type=color] {
+  margin-top: 40px;
+}
+
+input[type=checkbox] {
+  margin-top: 30px;
+}
+

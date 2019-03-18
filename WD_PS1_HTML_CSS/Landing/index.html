@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>N++</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity=
                 "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
         crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <section class="container">
   <a href="index.html" class="logo">N++</a>
-  <div class="menu">
+  <nav class="menu">
     <a href="#products">Products</a>
     <a href="#aboutUs">About us</a>
     <a href="#contacts">Contact us</a>
-  </div>
+  </nav>
 </section>
 <section class="container">
-  <div class="container section-division" id="products">
+  <div class="section-division" id="products">
     <img src="img/phone.png" alt="phone-logo" class="phone-logo">
     <div class="info-text-block">
       <h1>Our awesome app is ready to use!</h1>
@@ -37,123 +37,77 @@
   </div>
 </section>
 <section class="container">
-  <div class="container">
-    <div class="services" id="aboutUs">
-      <div class="services_item">
-        <div class="services_icon">
-          <div class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x services_icon-color"></i>
-            <i class="fas fa-code fa-stack-1x fa-inverse"></i>
-          </div>
-        </div>
-        <h3>Web development</h3>
-        <p>Lorem ipsum dolor sit amet, in duis metus,
-          inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
-          Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
+  <div class="services" id="aboutUs">
+    <div class="services_item">
+      <div class="services_icon">
+        <i class="fas fa-code"></i>
       </div>
-      <div class="services_item">
-        <div class="services_icon">
-          <div class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x services_icon-color"></i>
-            <i class="fab fa-android fa-stack-1x fa-inverse"></i>
-          </div>
-        </div>
-        <h3>Mobile development</h3>
-        <p>Lorem ipsum dolor sit amet, in duis metus,
-          inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
-          Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
+      <h3>Web development</h3>
+      <p>Lorem ipsum dolor sit amet, in duis metus,
+        inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
+        Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
+    </div>
+    <div class="services_item">
+      <div class="services_icon">
+        <i class="fab fa-android"></i>
       </div>
-      <div class="services_item">
-        <div class="services_icon">
-          <div class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x services_icon-color"></i>
-            <i class="fas fa-cloud fa-stack-1x fa-inverse"></i>
-          </div>
-        </div>
-        <h3>Hightload</h3>
-        <p>Lorem ipsum dolor sit amet, in duis metus,
-          inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
-          Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
+      <h3>Mobile development</h3>
+      <p>Lorem ipsum dolor sit amet, in duis metus,
+        inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
+        Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
+    </div>
+    <div class="services_item">
+      <div class="services_icon">
+        <i class="fas fa-cloud"></i>
       </div>
+      <h3>Hightload</h3>
+      <p>Lorem ipsum dolor sit amet, in duis metus,
+        inceptos sit sit, sapien donec, vestibulum neque laoreet sed, id urna ac per vivamus sed libero.
+        Metus sed fusce augue, ac sociis libero massa mi wisi. Integer nunc libero sed.</p>
     </div>
   </div>
 </section>
 <section class="container">
-  <div class="container section-division contacts" id="contacts">
+  <div class="section-division" id="contacts">
     <div class="contact_item">
+
       <h2>Contact us</h2>
       <form>
-        <div class="forms__block-row">
-          <label for="name">Your name: </label>
-          <input type="text" id="name" name="name" placeholder="Type here your name, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="email">Your email: </label>
-          <input type="email" name="email" id="email" placeholder="Type here your email, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="phone">Your phone: </label>
-          <input type="tel" name="phone" id="phone" placeholder="Type here your phone, please">
-        </div>
-        <div class="forms__block-row">
-          <textarea placeholder="Ask you question" cols="30" rows="10"></textarea>
-        </div>
-        <div class="forms__block-row">
+        <input type="text" id="name" name="name" placeholder="Type here your name, please">
+        <input type="email" name="email" id="email" placeholder="Type here your email, please">
+        <input type="tel" name="phone" id="phone" placeholder="Type here your phone, please">
+        <textarea placeholder="Ask you question" cols="30" rows="10"></textarea>
+        <div class="contact_item__button_state">
           <input type="submit" value="Send email" class="button">
           <input type="reset" value="Reset" class="button">
         </div>
       </form>
-    </div>
-    <div class="contact_item">
+
       <h2>Sing up</h2>
       <form>
-        <div class="forms__block-row">
-          <label for="login">Your login: </label>
-          <input type="text" id="login" name="login" placeholder="Type here your name, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="regEmail">Your email: </label>
-          <input type="email" name="regEmail" id="regEmail" placeholder="Type here your email, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="password">Password: </label>
-          <input type="password" name="password" id="password">
-        </div>
-        <div class="forms__block-row">
-          <label for="confirm_password">Confirm password: </label>
-          <input type="password" name="confirm_password" id="confirm_password">
-        </div>
-        <div class="forms__block-row">
+        <input type="text" id="login" name="login" placeholder="Type here your name, please">
+        <input type="email" name="regEmail" id="regEmail" placeholder="Type here your email, please">
+        <input type="password" name="password" id="password" placeholder="Type here your password, please">
+        <input type="password" name="confirm_password" id="confirm_password"
+               placeholder="Type here your password for confirm, please">
+        <div class="contact_item__button_state">
           <input type="submit" value="Sing up" class="button">
           <input type="reset" value="Reset" class="button">
         </div>
       </form>
-    </div>
-    <div class="contact_item">
+
       <h2>Tell us about yourself,<br>fill out our form please!</h2>
       <form>
+        <input type="text" id="name-form" name="name" placeholder="Type here your name, please">
         <div class="forms__block-row">
-          <label for="name-form">Your name: </label>
-          <input type="text" id="name-form" name="name" placeholder="Type here your name, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="date">DOB: </label>
+          <label for="date"> Birthday: </label>
           <input type="date" name="date" id="date">
         </div>
+        <input type="email" name="email" id="email-form" placeholder="Type here your email, please">
+        <input type="tel" name="phone" id="phone-form" placeholder="Type here your phone, please">
+        <input type="url" name="url" id="url" placeholder="Type here your site">
         <div class="forms__block-row">
-          <label for="email-form">Your email: </label>
-          <input type="email" name="email" id="email-form" placeholder="Type here your email, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="phone-form">Your phone: </label>
-          <input type="tel" name="phone" id="phone-form" placeholder="Type here your phone, please">
-        </div>
-        <div class="forms__block-row">
-          <label for="url">Your URL: </label>
-          <input type="url" name="url" id="url" placeholder="Type here your site">
-        </div>
-        <div class="forms__block-row">
-          <label for="datetime-local">Date & time: </label>
+          <label for="datetime-local">Local date & time: </label>
           <input type="datetime-local" name="datetime-local" id="datetime-local">
         </div>
         <div class="forms__block-row">
@@ -169,17 +123,19 @@
           <input type="number" name="number" id="number">
         </div>
         <div class="forms__block-row">
-          <label for="avatar">Add your photo!</label>
+          <label for="avatar">Add your photo:</label>
           <input type="file" name="avatar" id="avatar">
         </div>
         <div class="forms__block-row">
-          Select your gender!
-          <label for="male">Male</label>
-          <input type="radio" name="gender" value="male" id="male">
-          <label for="female">Female</label>
-          <input type="radio" name="gender" value="female" id="female">
-          <label for="other">Other</label>
-          <input type="radio" name="gender" value="other" id="other">
+          <div class="forms__block_row__gender">
+            <p>Select your gender:</p>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="other">Other</label>
+            <input type="radio" name="gender" value="other" id="other">
+          </div>
         </div>
         <div class="forms__block-row">
           <label for="input">Rate our services: <br></label>
@@ -190,11 +146,8 @@
         <div class="forms__block-row">
           <label for="color">Your favorite color: </label>
           <input type="color" name="color" id="color">
-        </div>
-        <div class="forms__block-row">
           <label for="checkbox">Have you used our apps before?</label>
-          <input type="checkbox" name="checkbox" value="checkbox" id="checkbox">
-        </div>
+          <input type="checkbox" name="checkbox" value="checkbox" id="checkbox"></div>
         <div class="forms__block-row">
           <input type="submit" value="Send form" class="button">
           <input type="reset" value="Reset" class="button">
