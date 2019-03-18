@@ -1,64 +1,45 @@
-html {
-    height: 100%;
-    font-size: 4vh;
-}
-
-body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica, sans-serif;
-    font-size: 4vh;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-* {
-    box-sizing: border-box;
+html, body {
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
 }
 
 header {
-    background-color: yellow;
-    color: green;
-    font-size: 4vh;
+  background-color: yellow;
+  color: green;
+  min-height: 10%;
 }
 
 footer {
-    background-color: black;
-    color: white;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  background-color: black;
+  color: white;
+  min-height: 10%;
 }
 
-@media screen and (max-width: 1980px) {
-    .container {
-        height: 95%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-shrink: 0;
-    }
+.container {
+  display: flex;
+  flex-shrink: 0;
+  min-height: 80%;
 }
 
-.navigation {
-    padding: 10px 10px 40px;
-    background-color: antiquewhite;
-    text-align: left;
-    flex-basis: 20%;
+.containerNavigation {
+  padding: 2% 2% 0;
+  background-color: antiquewhite;
+  text-align: left;
+  flex-basis: 20%;
 }
 
-.sidebar {
-    padding: 10px 10px 40px;
-    background-color: #27ae60;
-    flex: 30%;
+.containerSidebar {
+  padding: 2% 5% 0;
+  background-color: #27ae60;
+  flex: 30%;
 }
 
-.content {
-    padding: 10px 10px 40px;
-    background-color: #c0392b;
-    flex: 50%;
+.containerContent {
+  padding: 5% 5% 0;
+  background-color: #c0392b;
+  flex: 50%;
 }
