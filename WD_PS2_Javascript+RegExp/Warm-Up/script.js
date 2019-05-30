@@ -156,11 +156,6 @@ function sortLinks() {
     const links = document.getElementById("textArea").value;
     const ipRegularExp = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
     const urlRegularExp = /^[a-z0-9]+([\-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-    /*let linksArray = text.match(urlRegularExp);
-    console.log(linksArray.toString());
-    let addressesArray = text.match(ipReguralExp);
-    console.log(addressesArray.toString());
-    let generalArray = (linksArray.concat(addressesArray)).sort();*/
     let linksArray = links.replace(/,{2,}/, ',').replace(/\s/g, '').replace(/http[s]?:[/]+/g, '')
         .split(',').filter((i) => i !== '').sort();
     let linksList = document.createElement('div');
