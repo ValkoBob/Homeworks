@@ -6,8 +6,8 @@ const numbersForValidation = [2, 3, 7];
 buttonForTask1.addEventListener('click', sumTwoNumbers);
 
 function sumTwoNumbers() {
-    let min = +document.getElementById('firstNumber').value;
-    let max = +document.getElementById('secondNumber').value;
+    let min = document.getElementById('firstNumber').value;
+    let max = document.getElementById('secondNumber').value;
     if (min > max) {
         [min, max] = [max, min];
     }
@@ -83,14 +83,8 @@ function countDateTime() {
 }
 
 function interval(date1, date2) {
-    if (date1 > date2) { // swap
-        let result = interval(date2, date1);
-        result.years = -result.years;
-        result.months = -result.months;
-        result.days = -result.days;
-        result.hours = -result.hours;
-        result.minutes = -result.minutes;
-        return result;
+    if (date1 > date2) {
+        [date1, date2] = [date2, date1]
     }
     let result = {
         years: date2.getFullYear() - date1.getFullYear(),
@@ -140,19 +134,17 @@ function createChessBoard() {
         let wrapper = document.createElement('div');
         for (let i = 0; i < boardHeight; i++) {
             for (let j = 0; j < boardWidth; j++) {
-                wrapper.appendChild(addCell(sizeOfCell, (j % 2) === (i % 2) ? '#000000' : '#ffffff'));
+                let cell = document.createElement('div');
+                if((j % 2) === (i % 2)){
+                    cell.classList.add("blackCell");
+                } else{
+                    cell.classList.add("whiteCell");
+                }
+                wrapper.appendChild(cell);
             }
         }
         resultOfCreateChessBoard.innerHTML = wrapper.innerHTML;
     }
-}
-
-function addCell(size, color) {
-    let cell = document.createElement('div');
-    cell.style.width = size + 'px';
-    cell.style.height = size + 'px';
-    cell.style.background = color;
-    return cell;
 }
 
 const buttonForTask5 = document.getElementById('sortLink');
@@ -162,17 +154,27 @@ buttonForTask5.addEventListener('click', sortLinks);
 
 function sortLinks() {
     const links = document.getElementById("textArea").value;
+    const ipRegularExp = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
+    const urlRegularExp = /^[a-z0-9]+([\-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    /*let linksArray = text.match(urlRegularExp);
+    console.log(linksArray.toString());
+    let addressesArray = text.match(ipReguralExp);
+    console.log(addressesArray.toString());
+    let generalArray = (linksArray.concat(addressesArray)).sort();*/
     let linksArray = links.replace(/,{2,}/, ',').replace(/\s/g, '').replace(/http[s]?:[/]+/g, '')
         .split(',').filter((i) => i !== '').sort();
     let linksList = document.createElement('div');
+    console.log(linksArray.toString());
     for (let i = 0; i < linksArray.length; i++) {
-        let link = document.createElement('a');
-        link.style.color = 'white';
-        link.setAttribute('href', `http://${linksArray[i]}`);
-        link.setAttribute('target', '_blank"');
-        link.textContent = linksArray[i];
-        linksList.appendChild(link);
-        linksList.appendChild(document.createElement('br'));
+        if(urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])){
+            let link = document.createElement('a');
+            link.style.color = 'white';
+            link.setAttribute('href', `http://${linksArray[i]}`);
+            link.setAttribute('target', '_blank"');
+            link.textContent = linksArray[i];
+            linksList.appendChild(link);
+            linksList.appendChild(document.createElement('br'));
+        }
     }
     resultOfSortingLinks.innerHTML = linksList.innerHTML;
 }
