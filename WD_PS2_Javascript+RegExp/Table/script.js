@@ -59,19 +59,29 @@ input.addEventListener('keyup', () => {
     filterByName();
 });
 
-input.addEventListener('click', () => {
-    filterByName();
-});
-
 function filterByName() {
-    tBody.innerHTML = "";
-    let inputValue = new RegExp(input.value, "ig");
-    sum = 0;
-    goods.forEach(function (item) {
-        if (inputValue.test(item.name)) {
-            createTable(item);
+    let td, txtValue, amount, price, tdPrice, tdAmount;
+    let filter = input.value.toUpperCase();
+    let tr = tBody.getElementsByTagName("tr");
+    for (let i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        tdAmount = tr[i].getElementsByTagName("td")[2];
+        tdPrice = tr[i].getElementsByTagName("td")[3];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            amount = parseInt(tdAmount.textContent || tdAmount.innerText);
+            price = parseInt(tdPrice.textContent || tdPrice.innerText);
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                sum = sum + (amount * price);
+                total.innerHTML = sum + "$";
+            } else {
+                tr[i].style.display = "none";
+                sum = sum - (amount * price);
+                total.innerHTML = sum + "$";
+            }
         }
-    });
+    }
 }
 
 select.addEventListener('change', () => {
@@ -111,33 +121,50 @@ select.addEventListener('change', () => {
     total.innerHTML = sum + "$";
 });
 
-category.addEventListener('click', () => {
-    goods.sort(function (a, b) {
-        if (a.category > b.category) {
-            return 1;
-        }
-        if (a.category < b.category) {
-            return -1;
-        }
-        return 0;
-    });
-    tBody.innerHTML = "";
-    showTable();
+category.addEventListener('click', function () {
+    sortTable(0)
+});
+name.addEventListener('click', function () {
+    sortTable(1)
 });
 
-name.addEventListener('click', () => {
-    goods.sort(function (a, b) {
-        if (a.name > b.name) {
-            return 1;
+function sortTable(n) {
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+    switching = true;
+    table = tBody;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 0; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[n];
+            y = rows[i + 1].getElementsByTagName("td")[n];
+            if (dir === "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir === "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
         }
-        if (a.name < b.name) {
-            return -1;
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchCount++;
+        } else {
+            if (switchCount === 0 && dir === "asc") {
+                dir = "desc";
+                switching = true;
+            }
         }
-        return 0;
-    });
-    tBody.innerHTML = "";
-    showTable();
-});
+    }
+}
 
 function createTable(item) {
     let row = document.createElement("tr");
