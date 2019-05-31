@@ -60,7 +60,7 @@ function calculateSum() {
     tr = tBody.getElementsByTagName("tr");
     sum = 0;
     for (let i = 0; i < tr.length; i++) {
-        if(tr[i].style.display !== "none"){
+        if (tr[i].style.display !== "none") {
             tdAmount = tr[i].getElementsByTagName("td")[2];
             tdPrice = tr[i].getElementsByTagName("td")[3];
             amount = parseInt(tdAmount.textContent || tdAmount.innerText);
@@ -88,7 +88,6 @@ input.addEventListener('keyup', () => {
     }
     calculateSum();
 });
-
 
 
 select.addEventListener('change', () => {

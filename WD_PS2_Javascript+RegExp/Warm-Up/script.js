@@ -135,9 +135,9 @@ function createChessBoard() {
         for (let i = 0; i < boardHeight; i++) {
             for (let j = 0; j < boardWidth; j++) {
                 let cell = document.createElement('div');
-                if((j % 2) === (i % 2)){
+                if ((j % 2) === (i % 2)) {
                     cell.classList.add("blackCell");
-                } else{
+                } else {
                     cell.classList.add("whiteCell");
                 }
                 wrapper.appendChild(cell);
@@ -161,7 +161,7 @@ function sortLinks() {
     let linksList = document.createElement('div');
     console.log(linksArray.toString());
     for (let i = 0; i < linksArray.length; i++) {
-        if(urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])){
+        if (urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])) {
             let link = document.createElement('a');
             link.style.color = 'white';
             link.setAttribute('href', `http://${linksArray[i]}`);
