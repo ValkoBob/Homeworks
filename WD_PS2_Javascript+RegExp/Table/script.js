@@ -55,34 +55,41 @@ function showTable() {
     });
 }
 
-input.addEventListener('keyup', () => {
-    filterByName();
-});
+function calculateSum() {
+    let tr, amount, price, tdPrice, tdAmount;
+    tr = tBody.getElementsByTagName("tr");
+    sum = 0;
+    for (let i = 0; i < tr.length; i++) {
+        if(tr[i].style.display !== "none"){
+            tdAmount = tr[i].getElementsByTagName("td")[2];
+            tdPrice = tr[i].getElementsByTagName("td")[3];
+            amount = parseInt(tdAmount.textContent || tdAmount.innerText);
+            price = parseInt(tdPrice.textContent || tdPrice.innerText);
+            sum = sum + (amount * price);
+        }
+    }
+    total.innerHTML = sum + "$";
+}
 
-function filterByName() {
-    let td, txtValue, amount, price, tdPrice, tdAmount;
+input.addEventListener('keyup', () => {
+    let td, txtValue;
     let filter = input.value.toUpperCase();
     let tr = tBody.getElementsByTagName("tr");
     for (let i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[1];
-        tdAmount = tr[i].getElementsByTagName("td")[2];
-        tdPrice = tr[i].getElementsByTagName("td")[3];
         if (td) {
             txtValue = td.textContent || td.innerText;
-            amount = parseInt(tdAmount.textContent || tdAmount.innerText);
-            price = parseInt(tdPrice.textContent || tdPrice.innerText);
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
-                sum = sum + (amount * price);
-                total.innerHTML = sum + "$";
             } else {
                 tr[i].style.display = "none";
-                sum = sum - (amount * price);
-                total.innerHTML = sum + "$";
             }
         }
     }
-}
+    calculateSum();
+});
+
+
 
 select.addEventListener('change', () => {
     sum = 0;
