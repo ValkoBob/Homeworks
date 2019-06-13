@@ -93,30 +93,13 @@ input.addEventListener('keyup', () => {
 select.addEventListener('change', () => {
     sum = 0;
     tBody.innerHTML = "";
-    if (!select.value) {
+    if(!select.value){
         goods.forEach(function (item) {
             if (item.name.toLowerCase().indexOf(input.value) !== -1) {
                 createTable(item);
             }
         });
-    }
-    if (select.value === "supplies") {
-        goods.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1
-                && item.category.indexOf(select.value) !== -1) {
-                createTable(item);
-            }
-        });
-    }
-    if (select.value === "furniture") {
-        goods.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1
-                && item.category.indexOf(select.value) !== -1) {
-                createTable(item);
-            }
-        });
-    }
-    if (select.value === "other") {
+    }else{
         goods.forEach(function (item) {
             if (item.name.toLowerCase().indexOf(input.value) !== -1
                 && item.category.indexOf(select.value) !== -1) {
