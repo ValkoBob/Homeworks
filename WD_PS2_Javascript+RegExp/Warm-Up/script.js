@@ -6,8 +6,8 @@ const numbersForValidation = [2, 3, 7];
 buttonForTask1.addEventListener('click', sumTwoNumbers);
 
 function sumTwoNumbers() {
-    let min = document.getElementById('firstNumber').value;
-    let max = document.getElementById('secondNumber').value;
+    let min = +document.getElementById('firstNumber').value;
+    let max = +document.getElementById('secondNumber').value;
     if (min > max) {
         [min, max] = [max, min];
     }
@@ -159,7 +159,6 @@ function sortLinks() {
     let linksArray = links.replace(/,{2,}/, ',').replace(/\s/g, '').replace(/http[s]?:[/]+/g, '')
         .split(',').filter((i) => i !== '').sort();
     let linksList = document.createElement('div');
-    console.log(linksArray.toString());
     for (let i = 0; i < linksArray.length; i++) {
         if (urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])) {
             let link = document.createElement('a');
