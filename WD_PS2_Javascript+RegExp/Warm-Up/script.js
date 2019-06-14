@@ -147,23 +147,20 @@ function createChessBoard() {
     }
 }
 
-const buttonForTask5 = document.getElementById('sortLink');
 const resultOfSortingLinks = document.getElementById('task5');
+const textArea = document.getElementById('textArea');
 
-buttonForTask5.addEventListener('click', sortLinks);
-
-function sortLinks() {
-    const links = document.getElementById("textArea").value;
-    const ipRegularExp = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
-    const urlRegularExp = /^[a-z0-9]+([\-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-    let linksArray = links.replace(/,{2,}/, ',').replace(/\s/g, '').replace(/http[s]?:[/]+/g, '')
-        .split(',').filter((i) => i !== '').sort();
+textArea.addEventListener('blur', ()=> {
+    const links = textArea.value;
+    const ipRegularExp = /,{2,}/;
+    const urlRegularExp = /http[s]?:[/]+/g;
+    let linksArray = links.split(',').sort();
     let linksList = document.createElement('div');
     for (let i = 0; i < linksArray.length; i++) {
         if (urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])) {
             let link = document.createElement('a');
             link.style.color = 'white';
-            link.setAttribute('href', `http://${linksArray[i]}`);
+            link.setAttribute('href', `${linksArray[i]}`);
             link.setAttribute('target', '_blank"');
             link.textContent = linksArray[i];
             linksList.appendChild(link);
@@ -171,7 +168,7 @@ function sortLinks() {
         }
     }
     resultOfSortingLinks.innerHTML = linksList.innerHTML;
-}
+});
 
 const buttonForTask6 = document.getElementById('useRegularExp');
 const inputRegularExp = document.getElementById('regExp');
