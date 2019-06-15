@@ -152,7 +152,7 @@ const textArea = document.getElementById('textArea');
 
 textArea.addEventListener('blur', ()=> {
     const links = textArea.value;
-    const ipRegularExp = /,{2,}/;
+    const ipRegularExp = /^(([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)\.){3}([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)$/;
     const urlRegularExp = /http[s]?:[/]+/g;
     let linksArray = links.split(',').sort();
     let linksList = document.createElement('div');
