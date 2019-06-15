@@ -55,51 +55,19 @@ function showTable() {
     });
 }
 
-function calculateSum() {
-    let tr, amount, price, tdPrice, tdAmount;
-    tr = tBody.getElementsByTagName("tr");
-    sum = 0;
-    for (let i = 0; i < tr.length; i++) {
-        if (tr[i].style.display !== "none") {
-            tdAmount = tr[i].getElementsByTagName("td")[2];
-            tdPrice = tr[i].getElementsByTagName("td")[3];
-            amount = parseInt(tdAmount.textContent || tdAmount.innerText);
-            price = parseInt(tdPrice.textContent || tdPrice.innerText);
-            sum = sum + (amount * price);
-        }
-    }
-    total.innerHTML = sum + "$";
-}
+input.addEventListener('keyup', filter);
+select.addEventListener('change', filter);
 
-input.addEventListener('keyup', () => {
-    let td, txtValue;
-    let filter = input.value.toUpperCase();
-    let tr = tBody.getElementsByTagName("tr");
-    for (let i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-    calculateSum();
-});
-
-
-select.addEventListener('change', () => {
+function filter() {
     sum = 0;
     tBody.innerHTML = "";
-    if(!select.value){
+    if (!select.value) {
         goods.forEach(function (item) {
             if (item.name.toLowerCase().indexOf(input.value) !== -1) {
                 createTable(item);
             }
         });
-    }else{
+    } else {
         goods.forEach(function (item) {
             if (item.name.toLowerCase().indexOf(input.value) !== -1
                 && item.category.indexOf(select.value) !== -1) {
@@ -108,7 +76,7 @@ select.addEventListener('change', () => {
         });
     }
     total.innerHTML = sum + "$";
-});
+}
 
 category.addEventListener('click', function () {
     sortTable(0)
@@ -117,42 +85,44 @@ name.addEventListener('click', function () {
     sortTable(1)
 });
 
-function sortTable(n) {
-    let table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
-    switching = true;
-    table = tBody;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 0; i < rows.length - 1; i++) {
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("td")[n];
-            y = rows[i + 1].getElementsByTagName("td")[n];
-            if (dir === "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
+let sortWay = true;
+
+function sortTable(sortSwitcher) {
+    if (sortSwitcher === 0) {
+        if (sortWay === true) {
+            goods.sort(function (a, b) {
+                if (a.category > b.category) {
+                    return 1;
                 }
-            } else if (dir === "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            switchCount++;
+                return -1;
+            });
         } else {
-            if (switchCount === 0 && dir === "asc") {
-                dir = "desc";
-                switching = true;
-            }
+            goods.sort(function (a, b) {
+                if (a.category < b.category) {
+                    return 1;
+                }
+                return -1;
+            });
+        }
+    } else {
+        if (sortWay === true) {
+            goods.sort(function (a, b) {
+                if (a.name > b.name) {
+                    return 1;
+                }
+                return -1;
+            });
+        } else {
+            goods.sort(function (a, b) {
+                if (a.name < b.name) {
+                    return 1;
+                }
+                return -1;
+            });
         }
     }
+    filter();
+    sortWay = !sortWay;
 }
 
 function createTable(item) {
