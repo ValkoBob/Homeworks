@@ -89,37 +89,17 @@ let sortWay = true;
 
 function sortTable(sortSwitcher) {
     if (sortSwitcher === 0) {
-        if (sortWay === true) {
-            goods.sort(function (a, b) {
-                if (a.category > b.category) {
-                    return 1;
-                }
-                return -1;
-            });
-        } else {
-            goods.sort(function (a, b) {
-                if (a.category < b.category) {
-                    return 1;
-                }
-                return -1;
-            });
-        }
+        goods.sort(function (a, b) {
+            if (a.category < b.category) return sortWay ? 1 : -1;
+            if (a.category > b.category) return sortWay ? -1 : 1;
+            return 0;
+        });
     } else {
-        if (sortWay === true) {
-            goods.sort(function (a, b) {
-                if (a.name > b.name) {
-                    return 1;
-                }
-                return -1;
-            });
-        } else {
-            goods.sort(function (a, b) {
-                if (a.name < b.name) {
-                    return 1;
-                }
-                return -1;
-            });
-        }
+        goods.sort(function (a, b) {
+            if (a.name < b.name) return sortWay ? 1 : -1;
+            if (a.name > b.name) return sortWay ? -1 : 1;
+            return 0;
+        });
     }
     filter();
     sortWay = !sortWay;
