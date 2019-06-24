@@ -150,14 +150,21 @@ function createChessBoard() {
 const resultOfSortingLinks = document.getElementById('task5');
 const textArea = document.getElementById('textArea');
 
+function isValidUrl(linksArrayElement) {
+    const ipRegularExp = /^(([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)\.){3}([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)$/;
+    const urlRegularExp = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
+    return ipRegularExp.test(linksArrayElement) || urlRegularExp.test(linksArrayElement);
+
+}
+
 textArea.addEventListener('blur', ()=> {
     const links = textArea.value;
-    const ipRegularExp = /^(([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)\.){3}([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)$/;
-    const urlRegularExp = /http[s]?:[/]+/g;
-    let linksArray = links.split(',').sort();
+    let linksArray = links.replace(/\s/g, '').split(',').sort();
     let linksList = document.createElement('div');
     for (let i = 0; i < linksArray.length; i++) {
-        if (urlRegularExp.test(linksArray[i]) || ipRegularExp.test(linksArray[i])) {
+        console.log(linksArray[i]);
+        if(isValidUrl(linksArray[i])){
+            console.log(linksArray[i]);
             let link = document.createElement('a');
             link.style.color = 'white';
             link.setAttribute('href', `${linksArray[i]}`);
@@ -166,8 +173,8 @@ textArea.addEventListener('blur', ()=> {
             linksList.appendChild(link);
             linksList.appendChild(document.createElement('br'));
         }
+        resultOfSortingLinks.innerHTML = linksList.innerHTML;
     }
-    resultOfSortingLinks.innerHTML = linksList.innerHTML;
 });
 
 const buttonForTask6 = document.getElementById('useRegularExp');
