@@ -154,16 +154,15 @@ function isValidUrl(linksArrayElement) {
     const ipRegularExp = /^(([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)\.){3}([1-9]?\d|1\d\d|2[0-5][0-5]|2[0-4]\d)$/;
     const urlRegularExp = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
     return ipRegularExp.test(linksArrayElement) || urlRegularExp.test(linksArrayElement);
-
 }
 
-textArea.addEventListener('blur', ()=> {
+textArea.addEventListener('blur', () => {
     const links = textArea.value;
     let linksArray = links.replace(/\s/g, '').split(',').sort();
     let linksList = document.createElement('div');
     for (let i = 0; i < linksArray.length; i++) {
         console.log(linksArray[i]);
-        if(isValidUrl(linksArray[i])){
+        if (isValidUrl(linksArray[i])) {
             console.log(linksArray[i]);
             let link = document.createElement('a');
             link.style.color = 'white';
