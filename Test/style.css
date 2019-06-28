@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+@media screen and (max-width: 1980px) {
+    .container {
+
+    }
+}
+
+.container h1 {
+    margin-top: 0;
+}
+
+
+.sidebar {
+    background-color: #27ae60;
+    flex-basis: 30%;
+}
+
+.content {
+    padding: 10px 10px;
+    background-color: #c0392b;
+    flex-basis: 70%;
+}
+
+header {
+    flex: none;
+    background-color: #1abc9c;
+    font-size: 4vh;
+    padding: 1rem;
+    height: 50px;
+    width: 100%;
+}
+
+/**
+ * Footer Styles
+ */
+
+footer {
+    flex: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
