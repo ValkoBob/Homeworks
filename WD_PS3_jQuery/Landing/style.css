@@ -1,0 +1,262 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1980px) {
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+}
+
+.logo {
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 55px;
+  color: #1abc9c;
+  text-align: left;
+  flex-basis: 50%;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.logo::first-letter {
+  color: black;
+}
+
+.menu {
+  padding: 30px;
+  display: flex;
+}
+
+.menu a {
+  padding: 0 30px;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.section-division {
+  background-color: #1abc9c;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.phone-logo {
+  margin: 100px 100px 50px 0;
+}
+
+.info-text-block {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-text-block h1 {
+  padding-bottom: 20px;
+  font-size: 25px;
+  color: white;
+}
+
+.info-text-block p {
+  font-size: 12px;
+  color: white;
+}
+
+button {
+  font-size: 22px;
+  border-radius: 3px;
+  border: 2px solid white;
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+  background-color: #1abc9c;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px auto;
+}
+
+.services_item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  color: #454545;
+  font-size: 14px;
+  text-align: center;
+}
+
+.services_item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.services_item p {
+  color: black;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.services_icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  align-self: center;
+  background-color: #1abc9c;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+}
+
+.contact_item {
+  width: 600px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+  border: transparent;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_item h2 {
+  text-align: center;
+  color: white;
+  margin: 35px;
+}
+
+.contact_item textarea {
+  height: 100px;
+  resize: none;
+  margin: 5px;
+  padding-left: 5px;
+}
+
+.contact_item__button_state {
+  display: flex;
+}
+
+input[type=submit], [type=reset] {
+  font-size: 22px;
+  border-radius: 3px;
+  border: 2px solid white;
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin: 40px;
+  background-color: #1abc9c;
+}
+
+input[type=text], [type=tel], [type=email], [type=password], [type=date], [type=url],
+[type=datetime-local], [type=time], [type=number], [type=month], [type=file] {
+  margin: 5px;
+  height: 35px;
+  padding-left: 5px;
+}
+
+.forms__block-row {
+  display: flex;
+  color: white;
+}
+
+.forms__block-row label {
+  flex-basis: 30%;
+  padding: 10px;
+}
+
+.forms__block-row input {
+  flex-basis: 70%;
+}
+
+.forms__block_row__gender {
+  display: flex;
+  flex-direction: row;
+}
+
+.forms__block_row__gender p {
+  flex-basis: 50%;
+  margin-left: 10px;
+}
+
+.forms__block_row__gender label {
+  padding: 30px;
+  flex-basis: 20%;
+}
+
+.forms__block_row__gender input {
+  flex-basis: 5%;
+  margin-top: 30px;
+}
+
+input[type=color] {
+  margin-top: 40px;
+}
+
+input[type=checkbox] {
+  margin-top: 30px;
+}
+
+.up-page {
+  width: 60px;
+  height: 60px;
+  background: #292929;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #8f8f8f;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.up-page i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.up-page:hover {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
