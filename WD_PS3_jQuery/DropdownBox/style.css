@@ -1,0 +1,55 @@
+.selectBox{
+  margin: 10% auto auto;
+  height: 30%;
+  width: 30%;
+  border: 1px solid #bebebe;
+  border-radius: 8px;
+}
+
+.selectBox div{
+  padding: 5% 2% 5% 10%;
+  font-size: 1.3rem;
+  align-content: last-baseline;
+}
+
+.options {
+  position: absolute;
+  display: none;
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding:0;
+  height: 30%;
+  width: 30%;
+}
+.options.show {
+  display: block;
+}
+
+.options li {
+  cursor: pointer;
+  padding: 5% 2% 5% 10%;
+  font-size: 1.3rem;
+  align-content: last-baseline;
+  border-bottom: 1px  solid #ededed;
+}
+
+img{
+  padding-right: 15%;
+  height: 10%;
+  width: 10%;
+}
+
+.first_block{
+  color: #cacaca;
+  font-size: 1.3rem;
+}
+
+.fas{
+  padding-left: 60%;
+  color: black;
+}
+
+.focused{
+  background-color: #ededed;
+}
