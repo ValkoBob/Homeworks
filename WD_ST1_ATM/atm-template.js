@@ -17,10 +17,10 @@ const ATM = {
                     console.log("Congratulations! You log in successfully.");
                     this.isAuth = true;
                     this.currentUser = this.users[i];
-                    return;
+                    break;
                 }else{
                     console.log("You entered failed code. Please, repeat authorization!");
-                    return;
+                    break;
                 }
             }
         }
@@ -35,31 +35,25 @@ const ATM = {
     },
     // get cash - available for user only
     getCash(amount) {
-        if(this.isAuth === true){
+        if(this.isAuth){
             if(this.currentUser.type === "admin"){
                 console.log("You are admin! So you can not get or load cash.");
                 return;
             }
             let differ = this.currentUser.debet - amount;
             if(differ < 0){
-                console.log("There are not enough money on your account!")
+                console.log("There are not enough money on your account!");
             } else {
                 this.currentUser.debet = differ;
-                if (this.cash <= 0) {
+                this.cash -= amount;
+                if (this.cash < 0) {
+                    this.cash += amount;
                     console.log("ATM has not enough money!");
-                    this.currentUser.debet += amount;
-                } else {
-                    this.cash -= differ;
-                    if (this.cash <= 0) {
-                        console.log("ATM has not enough money!");
-                        this.cash = 0;
-                        this.currentUser.debet += amount;
-                    } else{
-                        console.log("You get cash successfully!");
-                        this.savedLogs.push("User: " + this.currentUser.type + " with id: " + this.currentUser.id +
-                        " get amount: " + amount);
-                    }
+                    return;
                 }
+                console.log("You get cash successfully!");
+                this.savedLogs.push("User: " + this.currentUser.type + " with id: " + this.currentUser.id +
+                    " get amount: " + amount);
             }
         } else{
             console.log("Please, log in!");
@@ -67,7 +61,7 @@ const ATM = {
     },
     // load cash - available for user only
     loadCash(amount) {
-        if(this.isAuth === true){
+        if(this.isAuth){
             if(this.currentUser.type === "admin"){
                 console.log("You are admin! So you can not get or load cash.");
                 return;
@@ -83,7 +77,7 @@ const ATM = {
     },
     // load cash to ATM - available for admin only - EXTENDED
     loadAtmCash(amount) {
-        if(this.isAuth === true && this.currentUser.type === "admin"){
+        if(this.isAuth && this.currentUser.type === "admin"){
             this.cash += amount;
             console.log("You load cash successfully!");
             this.savedLogs.push("Admin: " + this.currentUser.type + " with id: " + this.currentUser.id +
@@ -98,11 +92,9 @@ const ATM = {
     },
     // get cash actions logs - available for admin only - EXTENDED
     getLogs() {
-        if(this.isAuth === true && this.currentUser.type === "admin"){
+        if(this.isAuth && this.currentUser.type === "admin"){
             console.log("Saved logs: ");
-            for(let i = 0; i < this.savedLogs.length; i++){
-                console.log(this.savedLogs[i]);
-            }
+            this.savedLogs.forEach(log => console.log(log + "\n"));
         } else{
             if(this.currentUser.type === "user"){
                 console.log("You don`t have an access!");
