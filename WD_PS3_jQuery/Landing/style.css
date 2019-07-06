@@ -143,7 +143,7 @@ button {
   width: 600px;
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus {
   outline: none;
   border: transparent;
 }
@@ -232,7 +232,7 @@ input[type=checkbox] {
   margin-top: 30px;
 }
 
-.scrollToTop{
+.scrollToTop {
   width: 60px;
   height: 60px;
   background: #292929;
@@ -246,12 +246,14 @@ input[type=checkbox] {
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
 .scrollToTop i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 .scrollToTop:hover {
   opacity: 1;
 }
