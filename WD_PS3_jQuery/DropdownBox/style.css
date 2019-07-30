@@ -8,58 +8,68 @@ body {
   padding: 0;
   margin: 0;
 }
-.selectBox{
-  margin: 10% auto auto;
-  height: 10%;
-  width: 30%;
-  border: 1px solid #bebebe;
-  border-radius: 8px;
-}
 
-.selectBox div{
-  padding: 5% 2% 5% 10%;
-  font-size: 1.3rem;
-  align-content: last-baseline;
+.selectBox {
+  cursor: pointer;
+  margin: 10% auto auto;
+  width: 25%;
 }
 
 .options {
   position: absolute;
   display: none;
-  border-top: none;
-  list-style: none;
   margin: 0;
-  padding:0;
-  height: 30%;
-  width: 30%;
+  padding: 0;
+  width: 25%;
 }
+
 .options.show {
   display: block;
 }
 
-.options li {
+.options div {
+  padding: 2% 2% 2% 2%;
+  font-size: 3vh;
+  border-bottom: 0.2vh solid #ededed;
+  display: flex;
+}
+
+img {
+  flex-basis: 10%;
+  height: 20%;
+  width: 20%;
+}
+
+label {
   cursor: pointer;
-  padding: 5% 2% 5% 10%;
-  font-size: 1.3rem;
-  align-content: last-baseline;
-  border-bottom: 1px  solid #ededed;
+  flex-basis: 80%;
+  font-size: 3vh;
+  padding-left: 10%;
+  padding-top: 2%;
 }
 
-img{
-  padding-right: 15%;
-  height: 10%;
-  width: 10%;
-}
 
-.first_block{
+.selected {
   color: #cacaca;
-  font-size: 1.3rem;
+  padding: 2% 2% 2% 2%;
+  font-size: 3vh;
+  border-bottom: 0.2vh solid #ededed;
+  display: flex;
 }
 
-.fas{
+.first_block {
+  flex-basis: 80%;
+}
+
+.pointer {
+  flex-basis: 20%;
+}
+
+.fas {
   padding-left: 60%;
   color: black;
 }
 
-.focused{
+.focused {
   background-color: #ededed;
 }

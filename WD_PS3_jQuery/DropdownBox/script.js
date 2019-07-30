@@ -1,57 +1,55 @@
 const CHARACTERS = [
-    {
-        name: "Jenny Hess",
-        src: "./images/Jenny Hess.png"
-    },
-    {
-        name: "Elliot Fu",
-        src: "./images/Elliot Fu.png"
-    },
-    {
-        name: "Stevie Feliciano",
-        src: "./images/Stevie Feliciano.png"
-    },
-    {
-        name: "Christian",
-        src: "./images/Christian.png"
-    },
-    {
-        name: "Matt",
-        src: "./images/Matt.png"
-    }
+  {
+    name: "Jenny Hess",
+    src: "./images/Jenny Hess.png"
+  },
+  {
+    name: "Elliot Fu",
+    src: "./images/Elliot Fu.png"
+  },
+  {
+    name: "Stevie Feliciano",
+    src: "./images/Stevie Feliciano.png"
+  },
+  {
+    name: "Christian",
+    src: "./images/Christian.png"
+  },
+  {
+    name: "Matt",
+    src: "./images/Matt.png"
+  }
 ];
 
 $(document).ready(() => {
-    enableSelector();
+  enableSelector();
 });
 
 function enableSelector() {
-    let options = $('.options');
-    let li = '<li></li>';
-    CHARACTERS.forEach(function (item) {
-        let name = item.name;
-        options.append($(li).attr('value', name)
-            .html(`<img src="${item.src}" alt="${name}"><label>${name}</label>`));
-    });
-    $('.options li').on('click', function () {
-        let name = $(this).text();
-        $('.first_block').css('color', 'black').html(`<img src="images/${name}.png" alt="${name}">
+  let options = $('.options');
+  let div = '<div></div>';
+  CHARACTERS.forEach(function (item) {
+    let name = item.name;
+    options.append($(div).append(`<img src="${item.src}" alt="${name}"><label>${name}</label>`));
+  });
+  $('.options div').on('click', function () {
+    let name = $(this).text();
+    $('.selected').css('color', 'black').html(`<img src="images/${name}.png" alt="${name}">
 <label>${name}</label>`);
-        $('.options').removeClass('show');
-    });
+    $(options).hide();
+  });
 
-    $('.first_block').on('click', function () {
-        $('.options').toggleClass('show');
-    });
+  $('.selected').on('click', function () {
+    $(options).toggle();
+  });
 
-    $('.options li').hover(function () {
-        $(this).toggleClass('focused');
-    });
+  $('.options div').hover(function () {
+    $(this).toggleClass('focused');
+  });
 
-    $('body').click(function (e) {
-        if (!$(e.target).hasClass('first_block') && $('ul').hasClass('show')) {
-            $('.options').removeClass('show');
-            console.log("yes!")
-        }
-    });
+  $('body').click(function (e) {
+    if (!$(e.target).hasClass('first_block') && $('div').hasClass('show')) {
+      $(options).hide();
+    }
+  });
 }
