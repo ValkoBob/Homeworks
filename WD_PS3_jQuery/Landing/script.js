@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    let scrollToTop = $(".scrollToTop");
+    const scrollToTop = $(".scrollToTop");
     scrollToTop.on('click', function () {
         $('html, body').animate({scrollTop: 0}, 'slow');
     });
 
     $(window).on('scroll', function () {
-        let self = $(this),
+        const self = $(this),
             height = self.height(),
             top = self.scrollTop();
         if (top < height) {
