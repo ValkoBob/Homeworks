@@ -26,16 +26,17 @@ $(document).ready(() => {
 });
 
 function enableSelector() {
-  let options = $('.options');
-  let div = '<div></div>';
+  const options = $('.options');
+  const div = '<div></div>';
   CHARACTERS.forEach(function (item) {
     let name = item.name;
     options.append($(div).append(`<img src="${item.src}" alt="${name}"><label>${name}</label>`));
   });
+
   $('.options div').on('click', function () {
     let name = $(this).text();
     $('.selected').css('color', 'black').html(`<img src="images/${name}.png" alt="${name}">
-<label>${name}</label>`);
+    <label>${name}</label>`);
     $(options).hide();
   });
 
@@ -47,8 +48,9 @@ function enableSelector() {
     $(this).toggleClass('focused');
   });
 
-  $('body').click(function (e) {
-    if (!$(e.target).hasClass('first_block') && $('div').hasClass('show')) {
+  $(document).on('click', function (e) {
+    const selectBox = $('.selectBox');
+    if (!selectBox.is(e.target) && selectBox.has(e.target).length === 0) {
       $(options).hide();
     }
   });
