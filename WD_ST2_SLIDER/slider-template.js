@@ -10,6 +10,7 @@ const IMAGES = [
   '?image=1050',
   '?image=1039'
 ];
+
 let numberOfImage = 0;
 
 function enableSlider() {
