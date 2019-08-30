@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #2C2D32;
+  margin: 0;
+}
+
+.assignment {
+  background-color: darkcyan;
+  padding: 2%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 2%;
+  color: white;
+}
+
+input {
+  width: 20vh;
+}
+
+input[type=number],[type=text] {
+  border-radius: 2vh;
+  outline: none;
+  margin: 1%;
+}
+
+input[type=submit] {
+  font-weight: bold;
+  background-color: green;
+  color: #000000;
+  border: 0.2vh solid green;
+  border-radius: 0.5vh;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0.2vh #3d3d3d;
+  transition-duration: 0.4s;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+input[type=submit]:active {
+  box-shadow: 0 0 #3d3d3d;
+  transform: translateY(0.2vh);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+  width: 50vh;
+  height: 30vh;
+  border-radius: 0.5vh;
+  outline: none;
+  margin: 1vh;
+}
