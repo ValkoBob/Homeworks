@@ -17,9 +17,10 @@ body {
 
 input {
   width: 20vh;
+  padding-left: 0.2vh;
 }
 
-input[type=number],[type=text] {
+input[type=number], [type=text] {
   border-radius: 2vh;
   outline: none;
   margin: 1%;
@@ -37,6 +38,10 @@ input[type=submit] {
   transition-duration: 0.4s;
   margin-top: 1vh;
   margin-bottom: 1vh;
+}
+
+input[type= file] {
+  width: 100%;
 }
 
 input[type=submit]:active {

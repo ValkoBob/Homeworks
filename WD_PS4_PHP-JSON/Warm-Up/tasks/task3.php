@@ -17,9 +17,18 @@
         }
     } elseif (isset ($_POST["display"])) {
         $files = array_diff(scandir($target_dir, SCANDIR_SORT_NONE), ['.', '..']);
+        $sizeOfImage = 100;
+        $imagesExtensions = array('gif', 'png', 'jpg', 'bmp', 'jpeg');
         foreach ($files as $file) {
-            $normalSize = normal_size($target_dir . $file);
-            echo "Name of file: $file Size is: $normalSize <br>";
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            $pathToFile = $target_dir . $file;
+            $normalSize = normal_size($pathToFile);
+            if (in_array($ext, $imagesExtensions)) {
+                echo "<img src='$pathToFile' alt='file'  width='$sizeOfImage' height='$sizeOfImage'>
+<p><a href='$target_dir . $file' download>$file</a><br>$normalSize</p>";
+            } else {
+                echo "<p><a href='$pathToFile' download>$file</a><br>$normalSize</p>";
+            }
         }
     }
     ?>
