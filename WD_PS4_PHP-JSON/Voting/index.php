@@ -25,21 +25,31 @@ session_start();
   </form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['vote'])) {
-        $result = $_POST['vote'];
-        $fileName = "date.json";
-        if (file_exists($fileName)) {
-            $date = json_decode(file_get_contents($fileName));
-            $date->{'voting'}->{$result}++;
-            writeToFile($date, $fileName);
+        if ($_SESSION['count'] == 0) {
+            $result = $_POST['vote'];
+            $fileName = "date.json";
+            if (file_exists($fileName)) {
+                $date = json_decode(file_get_contents($fileName));
+                $date->{'voting'}->{$result}++;
+                writeToFile($date, $fileName);
+            } else {
+                $option = array("FLAME SWORD" => 0, "RATTLESNAKE" => 0, "RED DAWN" => 0);
+                $option[$result]++;
+                $date = array('voting' => array("FLAME SWORD" => $option["FLAME SWORD"],
+                    "RATTLESNAKE" => $option["RATTLESNAKE"],
+                    "RED DAWN" => $option["RED DAWN"]));
+                writeToFile($date, $fileName);
+            }
+            header('Location: result.php');
         } else {
-            $option = array("FLAME SWORD" => 0, "RATTLESNAKE" => 0, "RED DAWN" => 0);
-            $option[$result]++;
-            $date = array('voting' => array("FLAME SWORD" => $option["FLAME SWORD"],
-                "RATTLESNAKE" => $option["RATTLESNAKE"],
-                "RED DAWN" => $option["RED DAWN"]));
-            writeToFile($date, $fileName);
+            echo "<p class='message'> You have already voted!</p>";
         }
-        header('Location: result.php');
+    }
+
+    if (!isset($_SESSION['count'])) {
+        $_SESSION['count'] = 0;
+    } else {
+        $_SESSION['count'] = 1;
     }
     ?>
     <?php
