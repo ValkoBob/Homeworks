@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $.getJSON('date.json', function (votingData) {
+  $.getJSON('data.json', function (votingData) {
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 

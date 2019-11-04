@@ -4,7 +4,7 @@ h1 {
 }
 
 .voting {
-  width: 120vh;
+  width: fit-content;
   padding: 1.5vh;
   background-color: #f7f7f7;
   border: 0.1vh solid #3875d7;
